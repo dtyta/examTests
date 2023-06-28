@@ -3,7 +3,6 @@ import * as user from '../../fixtures/credentials.json';
 import authorizationPage from '../../support/pages/authorizationPage';
 import * as helper from '../../support/helper';
 import * as helperAuth from '../../support/helperAuth';
-import { beforeEach } from 'mocha';
 
 
 let email;

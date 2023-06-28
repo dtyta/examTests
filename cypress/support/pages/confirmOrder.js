@@ -7,7 +7,7 @@ class ConfirmOrder{
     }
 
     getAssertionConfirmingOrder(){
-        cy.get('[class="confirmation"]');
+       return cy.get('[class="confirmation"]');
     }
 
 };

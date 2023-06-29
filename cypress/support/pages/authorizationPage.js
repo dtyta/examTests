@@ -14,5 +14,5 @@ class AuthorizationPage{
     getAssertion(){
         return cy.get('.error',);
     }
-}; 
+};
 export default new AuthorizationPage();

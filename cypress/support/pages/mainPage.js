@@ -25,5 +25,13 @@ class MainPage{
     getButtonForRegistrationForm(){
         return cy.get('[class="primary-link"]', {timeout: 5000});
     }
+
+    getAddToBasketButton(){
+        return cy.get('[class="mat-button-wrapper"]');
+    }
+
+    getVerifyThatGoodsAdded(){
+        return cy.get('[class="mat-simple-snack-bar-content"]');
+    }
 }; 
     export default new MainPage();

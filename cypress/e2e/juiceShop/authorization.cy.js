@@ -8,13 +8,13 @@ import * as helperAuth from '../../support/helperAuth';
 let email;
 let password;
 
-beforeEach('Registration before authorization', () => {
+before('Registration before authorization', () => {
   const userData = helperAuth.registerUser();
   email = userData.email;
   password = userData.password;
 });
 
-it.skip('Authorization positive Flow', () => {
+it('Authorization positive Flow', () => {
   mainPage.open();
   mainPage.getAccountButton().click({ force: true });
   mainPage.getLoginButton().click();
@@ -28,7 +28,7 @@ it.skip('Authorization positive Flow', () => {
 let randomString = helper.createRandomString(8);
 let mail = `${randomString}${user.email}`;
 
-it.only('Authorization negative flow', () => {
+it('Authorization negative flow', () => {
     mainPage.open();
     mainPage.getCloseModalWindowButton().click();
     mainPage.getAcceptingCookies().click();

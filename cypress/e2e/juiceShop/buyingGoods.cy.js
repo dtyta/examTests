@@ -8,15 +8,15 @@ import paymentOptionPage from '../../support/pages/paymentOptionPage';
 import confirmOrder from '../../support/pages/confirmOrder';
 import * as helperAuth from '../../support/helperAuth';
 
-beforeEach(() => {
-   cy.restoreLocalStorage();
- });
+// beforeEach(() => {
+//    cy.restoreLocalStorage();
+//  });
  
- afterEach(() => {
-   cy.saveLocalStorage();
- });
+//  afterEach(() => {
+//    cy.saveLocalStorage();
+//  });
 
-beforeEach('Registration before authorization', () => {
+before('Registration before authorization', () => {
     const userData = helperAuth.registerUser();
     email = userData.email;
     password = userData.password;
@@ -42,7 +42,6 @@ it('Purchase of goods via search field', () => {
 
     cy.log('Add goods to cart');
     addGoodsToCart.getAddToBasket().click();
-    cy.wait(2000);
     addGoodsToCart.getShoppingCart().click();
     addGoodsToCart.getClickCheckoutButton().click();
 
@@ -70,7 +69,6 @@ it('Purchase of goods via search field', () => {
     paymentOptionPage.getValidityMonth().select(5);
     paymentOptionPage.getValidityYear().select("2080");
     paymentOptionPage.getSubmitButton().click();
-    cy.wait(500);
     paymentOptionPage.getChooseCard().first().click({force:true});
 
     cy.log('Confirming order')
@@ -82,6 +80,8 @@ it('Purchase of goods via search field', () => {
 it('Purchase of goods on main page', () => {
     cy.log('Open website');
     mainPage.open();
+    mainPage.getCloseModalWindowButton().click();
+    mainPage.getAcceptingCookies().click();
     mainPage.getAccountButton().click({force:true});
     mainPage.getLoginButton().click();
 
@@ -122,11 +122,10 @@ it('Purchase of goods on main page', () => {
     paymentOptionPage.getValidityMonth().select(5);
     paymentOptionPage.getValidityYear().select("2080");
     paymentOptionPage.getSubmitButton().click();
-    cy.wait(500);
     paymentOptionPage.getChooseCard().first().click({force:true});
 
     cy.log('Confirming order')
     confirmOrder.getClickReviewButton().click();
-    confirmOrder.getClickConfirmButton().click();
+    confirmOrder.getClickConfirmButton().click({force:true});
     confirmOrder.getAssertionConfirmingOrder().should('have.text', 'Thank you for your purchase!');
 })

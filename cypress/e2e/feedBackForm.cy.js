@@ -33,11 +33,9 @@ it('Purchase of goods via search field', () => {
     feedBackPage.getRating().click();
     feedBackPage.getCaptcha().invoke("text").then((captchaText) => {
       const captchaResult = eval(captchaText);
-      cy.get("#captchaControl").type(captchaResult);
-      cy.get('button[type="submit"]').click();
-      cy.get(".mat-simple-snack-bar-content")
-        .contains("Thank you for your feedback.")
-        .should("be.visible");
+      feedBackPage.getCaptchacontrol().type(captchaResult);
+      feedBackPage.getSubmitButton().click();
+      feedBackPage.getAssertion().contains("Thank you for your feedback.").should("be.visible");
   });
 
 })

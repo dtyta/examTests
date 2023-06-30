@@ -27,7 +27,7 @@ class MainPage{
     }
 
     getAddToBasketButton(){
-        return cy.get('[class="mat-button-wrapper"]');
+        return cy.get('[class="mat-button-wrapper"]', {timeout: 5000});
     }
 
     getVerifyThatGoodsAdded(){

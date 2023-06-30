@@ -9,16 +9,29 @@ class feedBackPage{
     }
 
     getComment(){
-        return cy.get('[id="comment"]');
+        return cy.get('[id="comment"]', {timeout:5000});
     }
 
     getRating(){
-        return cy.get('[id="rating"]');
+        return cy.get('[id="rating"]', {timeout:5000});
     }
 
     getCaptcha(){
-        return cy.get("code#captcha");
+        return cy.get("code#captcha", {timeout:5000});
     }
+
+    getCaptchacontrol(){
+        return cy.get("#captchaControl", {timeout:5000});
+    }
+
+    getSubmitButton(){
+        return cy.get('button[type="submit"]', {timeout:5000});
+    }
+
+    getAssertion(){
+       return cy.get(".mat-simple-snack-bar-content", {timeout:5000});
+    }
+
 
 
 

@@ -1,0 +1,25 @@
+{
+  "name": "examtests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtyta/examTests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtyta/examTests/issues"
+  },
+  "homepage": "https://github.com/dtyta/examTests#readme",
+  "dependencies": {
+    "cypress": "^12.16.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2"
+  }
+}
